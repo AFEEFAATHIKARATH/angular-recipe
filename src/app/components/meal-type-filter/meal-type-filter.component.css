@@ -1,0 +1,22 @@
+/* Button group styling */
+.btn-group {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  border-radius: 25px;
+  font-size: 1rem;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  color: #ffffff;
+}
+
+.btn.active {
+  background-color: #007bff;
+  color: #ffffff;
+}

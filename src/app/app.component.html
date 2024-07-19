@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="container">
+  <app-search-bar (search)="onSearch($event)"></app-search-bar>
+  <app-meal-type-filter (filter)="onFilter($event)"></app-meal-type-filter>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let recipe of filteredRecipes">
+      <app-recipe-card [recipe]="recipe"></app-recipe-card>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
