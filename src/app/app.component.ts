@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   searchTerm: string = '';
   mealType: string = '';
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
     this.recipeService.getRecipes().subscribe(data => {
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
   applyFilters(): void {
     this.filteredRecipes = this.recipes.filter(recipe => {
       const matchesSearchTerm = this.searchTerm ? recipe.name.toLowerCase().includes(this.searchTerm) || recipe.cuisine.toLowerCase().includes(this.searchTerm) : true;
-      const matchesMealType = this.mealType ? recipe.mealType === this.mealType : true;
+      const matchesMealType = this.mealType.toLowerCase() != 'all' ? recipe.mealType.some((type: any) => type.toLowerCase() === this.mealType.toLowerCase()) : true;
       return matchesSearchTerm && matchesMealType;
     });
   }
